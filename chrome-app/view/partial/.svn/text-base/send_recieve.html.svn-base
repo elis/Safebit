@@ -1,0 +1,172 @@
+<script type="text/javascript" src="/static/section/send_recieve.js"></script>
+
+<script type="text/template" id="account-select-row-template">
+	<option value="account-name">
+		<span class="name">Account Name</span> 
+		(<span class="amount">888</span> 
+		<span class="symbol btc">&#0579;</span>)
+	</option>
+</script>
+
+<script type="text/template" id="send_recieve-template" class="sidemenu">
+	<nav>
+		<ul>
+			<li class="send active"><a rel="send-funds">Send Funds</a></li>
+			<li class="recieve"><a rel="recieve-funds">Recieve Funds</a></li>
+		</ul>
+	</nav>
+	
+	<div class="container">
+		<article class="send-funds active">
+			<div id="row">
+				<div class="grid_5">
+					<a rel="balance" class="action"></a>
+					<h1>Send Funds</h1>
+					<form id="send_funds" method="post" enctype="application/x-www-form-urlencoded">
+						<label class="account">
+							<span>From: </span>
+							<input type="text" name="account" placeholder="Select an Acocunt" />
+							<span class="details">
+								Select an existing account
+							</span>
+						</label>
+						
+						<label class="target">
+							<span>Target:</span>
+							<input type="text" name="target" placeholder="Define Target"/>
+						</label>
+						
+						<label class="amount">
+							<span>Amount:</span>
+							<input type="text" name="amount" value="0.00"/>
+						</label>
+						
+						<div class="actions">
+							<a class="cancel button">Cancel</a>
+							<a class="send button">Send Money</a>
+						</div>
+					</form>
+				</div>
+				<div class="grid_1">
+					&nbsp;
+				</div>
+				<div class="grid_6">
+					<a rel="balance" class="action"></a>
+					<h2>Transaction Details</h2>
+					<p>
+						You are about to transfer <ins class="currency btc">#,##0.00 &#0579;</ins>
+						from <ins class="from account">Account Name</ins> to <ins class="to btcaddress">tareget address</ins>.
+					</p>
+					<table class="transaction details">
+						<tr>
+							<th>Transaction amount:</th>
+							<td class="currency btc">#,##0.00 &#0579;</td>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<th>Account balance:</th>
+							<td class="currency btc">#,##0.00 &#0579;</td>
+							<td class="currency btc after">#,##0.00 &#0579;</td>
+						</tr>
+						<tr>
+							<th>Wallet balance:</th>
+							<td class="currency btc">#,##0.00 &#0579;</td>
+							<td class="currency btc after">#,##0.00 &#0579;</td>
+						</tr>
+						<!-- Other currencies
+						<tr>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td>Wallet balance:</td>
+							<td class="currency btc">#,##0.00 &#0579;</td>
+							<td class="currency btc after">#,##0.00 &#0579;</td>
+						</tr>
+						-->
+					</table>
+					<p>
+						Transaction Amount: <ins class="currency btc">#,##0.00 &#0579;</ins><br/>
+						
+					</p>
+				</div>
+			</div>
+			
+			<form id="send_funds" method="post" enctype="application/x-www-form-urlencoded">
+				<label class="account">
+					<span>From: </span>
+					<input type="text" name="account" placeholder="Select an Acocunt" />
+					<span class="details">
+						Select an existing account
+					</span>
+				</label>
+				
+				<label class="target">
+					<span>Target:</span>
+					<input type="text" name="target" placeholder="Define Target"/>
+				</label>
+				
+				<label class="amount">
+					<span>Amount:</span>
+					<input type="text" name="amount" value="0.00"/>
+				</label>
+				
+				<div class="actions">
+					<a class="cancel button">Cancel</a>
+					<a class="send button">Send Money</a>
+				</div>
+			</form>
+			<form id="send_funds" method="post" enctype="application/x-www-form-urlencoded">
+				<label class="account">
+					<span>From: </span>
+					<input type="text" name="account" placeholder="Select an Acocunt" />
+					<span class="details">
+						Select an existing account
+					</span>
+				</label>
+				
+				<label class="target">
+					<span>Target:</span>
+					<input type="text" name="target" placeholder="Define Target"/>
+				</label>
+				
+				<label class="amount">
+					<span>Amount:</span>
+					<input type="text" name="amount" value="0.00"/>
+				</label>
+				
+				<div class="actions">
+					<a class="cancel button">Cancel</a>
+					<a class="send button">Send Money</a>
+				</div>
+			</form>
+		</article>
+		<article class="recieve-funds">
+			<a rel="balance" class="action"></a>
+			<h1>Receive Funds</h1>
+			<form id="send_funds" method="post" enctype="application/x-www-form-urlencoded">
+				<label class="account">
+					<span>From: </span>
+					<input type="text" name="account" placeholder="Select an Acocunt" />
+					<span class="details">
+						Select an existing account
+					</span>
+				</label>
+				
+				<label class="target">
+					<span>Target:</span>
+					<input type="text" name="target" placeholder="Define Target"/>
+				</label>
+				
+				<label class="amount">
+					<span>Amount:</span>
+					<input type="text" name="amount" value="0.00"/>
+				</label>
+				
+				<div class="actions">
+					<a class="cancel button">Cancel</a>
+					<a class="send button">Send Money</a>
+				</div>
+			</form>
+		</article>
+	</div>
+</script>

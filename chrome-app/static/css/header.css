@@ -1,0 +1,250 @@
+
+header {
+	background: url('../imgv2/header-bg.png') 50% bottom no-repeat;
+	height: 95px;
+	position: relative;
+	overflow: hidden;
+	padding: 4px 6px 0;
+}
+
+/* STATUS */
+#status {
+	position: absolute;
+	height: 40px;
+	border-radius: 5px;
+	xbox-shadow: 0 0 5px rgba(0, 0, 0, 0.46);
+	right: 4px;
+	bottom: 4px;
+	width: 200px;
+	font-size: 10px;
+	line-height: 16px;
+	text-align: right;
+}
+	#status p {
+		cursor: default;
+		display: inline-block;
+		width: 17px;
+		height: 17px;
+		margin-top: 21px;
+		background: url('../imgv2/icons.png') right bottom no-repeat;
+	}
+		#status p span {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			opacity: 0;
+			-webkit-transition: opacity 250ms;
+			font-size: 12px;
+			
+		}
+		#status p:hover span {
+			opacity: 1;
+		}
+
+	#status p.rpc {
+		background-position: -3px -347px;
+	}
+		#status p.rpc.idle {
+			background-position: -3px -372px;
+		}
+		#status p.rpc.active {
+			background-position: -43px -372px;
+		}
+		#status p.rpc.issue {
+			background-position: -85px -372px;
+		}
+
+	#status p.cloud {
+		background-position: -3px -397px;
+	}
+	#status p.bitcoin {
+		background-position: -402px -373px;
+	}
+	#status #connection {
+		position: absolute;
+		left: 8px;
+		bottom: 2px;
+		background: url('../images/temp-header-sprite.png') -287px 1px no-repeat;
+		padding: 0 0 0 18px;
+	}
+	#status #last-update {
+		position: absolute;
+		right: 8px;
+		text-align: right;
+		bottom: 2px;
+	}
+
+/* INFO */
+#info {
+	display: block;
+	float: left;
+	width: 300px;
+}
+	#info #icon {
+		display: block;
+		float: left;
+		width: 64px;
+		height: 64px;
+		background: url('../icon/64.png') left top no-repeat;
+		margin-right: 10px;
+	}
+	#info #wallet-name {
+		font-size: 16px;
+		border: none;
+		padding-top: 4px;
+	}
+	#info #wallet-size {
+		font-size: 11px;
+		line-height: 18px;
+	}
+		#info #wallet-size span {
+			font-family: Arial;
+			margin: 0 12px 0 0;
+		}
+			#info #wallet-size span span {
+				font-family: "DroidSansRegular";
+				margin: 0;
+				float: none;
+			}
+		#info #wallet-size .btc {
+			font-size: 14px;
+		}
+	#info #wallet-file {
+		font-size: 11px;
+		line-height: 18px;
+	}
+
+/* CONTROL */
+#control {
+	float: right;
+	padding: 6px 0;
+}
+	#control a {
+		display: block;
+		width: 32px;
+		height: 32px;
+		margin: 0 0 0 8px;
+		float: left;
+		cursor: pointer;
+	}
+	#control a span {
+		display: none;
+	}
+	#control #safecontrol {
+		background: url('../images/temp-header-sprite.png') -627px -11px no-repeat;
+	}
+	#control #exit {
+		background: url('../images/temp-header-sprite.png') -672px -11px no-repeat;
+	}
+
+/* NAVIGATION */
+
+header nav {
+	clear: both;
+	padding: 0 0 0 ;
+	overflow: auto;
+	margin-left: -9px;
+}
+header nav ul {
+	overflow: auto;
+}
+	header nav li {
+		float: left;
+		padding-left: 18px;
+	}
+	header nav li a {
+	}
+	header nav li.active {
+		background: url('../imgv2/tabs.png') right -32px no-repeat;
+		padding-right: 25px;
+		margin-right: -25px;
+		padding-left: 0;
+	}
+	header nav li.active:hover {
+	}
+	header nav li.active a {
+		background: url('../imgv2/tabs.png') left top no-repeat;
+	}
+	header nav li:hover {
+	}
+		header nav li a {
+			display: block;
+			cursor: pointer;
+			font: bold 11px Verdana;
+			color: #525252;
+			padding: 10px 0 0 0;
+			text-shadow: 1px 1px 1px rgba(255,255,255,0.55);
+		}
+		header nav li.active a {
+			padding: 10px 0 0 18px;
+			color: #262626;
+			cursor: default;
+		}
+		header nav li a:hover {
+			color: #222;
+		}
+			header nav a span {
+				cursor: pointer;
+				background: url('../imgv2/icons.png') no-repeat;
+				padding: 0 4px 5px 25px;
+				display: block;
+				line-height: 16px;
+			}
+			header nav li.active a span {
+				cursor: default;
+			}
+			header nav li.no-rel a span {
+				color: #300;
+				font-style: italic;
+			}
+				header nav .dashboard a span {
+					background-position: left -61px;
+				}
+				header nav .dashboard.active a span,
+				header nav .dashboard:hover a span {
+					background-position: left -89px;
+				}
+				
+				header nav .funds a span {
+					background-position: left -117px;
+				}
+				header nav .funds.active a span,
+				header nav .funds:hover a span {
+					background-position: left -145px;
+				}
+				
+				header nav .accounts a span {
+					background-position: left -174px;
+				}
+				header nav .accounts.active a span,
+				header nav .accounts:hover a span {
+					background-position: left -205px;
+				}
+				
+				header nav .log a span {
+					background-position: left -235px;
+				}
+				header nav .log.active a span,
+				header nav .log:hover a span {
+					background-position: left -263px;
+				}
+				
+				header nav .settings a span {
+					background-position: left -291px;
+				}
+				header nav .settings.active a span,
+				header nav .settings:hover a span {
+					background-position: left -321px;
+				}
+
+				
+				header nav .donate a span {
+					background-position: -396px -90px;
+					color: #039;
+				}
+				header nav .donate.active a span,
+				header nav .donate:hover a span {
+					background-position: -396px -120px;
+				}
+

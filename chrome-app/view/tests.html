@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Testing Facility</title>
+		<script type="text/javascript" src="/static/js/jquery-1.5.1.min.js"></script>
+		<style>
+			#cont {
+			}
+			#display {
+				position: relative;
+				width: 400px;
+				height: 400px;
+				-webkit-perspective: 1000;
+				margin: 50px auto; 
+			}
+			.face {
+				position: absolute;
+				width: 400px;
+				height: 400px;
+				background: rgba(100,100,100,0.8);
+				-webkit-transition: -webkit-transform 0.75s linear;
+				-webkit-transform: translateX(-150%) translateZ(-400px);
+				-webkit-transform-origin: 0% 0%;
+				-webkit-perspective-origin: 30% 30%;
+				-webkit-backface-visibility: hidden;
+			}
+			.face.active {
+				-webkit-transform: translateX(0) translateZ(0);
+				background: rgba(30, 30, 120, 0.7);
+			}
+		</style>
+		<script type="text/javascript">
+			$$(function() {
+				var el = $$('#display .face'),
+					l = el.length,
+					c = 0;
+				$$(el[c]).addClass('active');
+				console.log(el[c]);
+				
+				$$(window).bind('keydown', function (e) {
+
+					switch (e.keyCode) {
+						case 37: // left
+						case 38: // up
+						case 39: // right
+						case 40: // down
+							++c;
+							if (c >= l) c=0;
+							el.removeClass('active');
+							$$(el[c]).addClass('active');
+							break;
+					}
+				})
+			})
+		</script>
+	</head>
+	
+	<body>
+		<div id="cont">
+			<div id="display">
+				<div id="face1" class="face a">
+					Face 1
+				</div>
+				<div id="face2" class="face b">
+					Face 2
+				</div>
+				<div id="face3" class="face c">
+					Face 3
+				</div>
+			</div>
+			
+		</div>
+		
+	</body>
+	
+</html>

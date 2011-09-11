@@ -1,0 +1,111 @@
+<script type="text/javascript" src="/static/section/accounts.js"></script>
+
+<script type="text/template" id="accounts-template" class="sidemenu">
+	<nav>
+		<ul>
+			<li class="manage-accounts active"><a rel="manage-accounts">Manage Accounts</a></li>
+			<li class="new-account "><a rel="new-account">Make New Account</a></li>
+			<!--<li class="receive"><a rel="receive-funds">Receive Funds</a></li>-->
+		</ul>
+	</nav>
+
+	<div class="container">
+		<article class="welcome ">
+			<h1>Accounts Management</h1>
+			<p>In Bitcoin we have three major concepts when it comes to money handling: <tt>Addresses</tt>, <tt>Accounts</tt>, and <tt>Wallets</tt>. <tt>Addresses</tt> are a pair of public-private keys that have the Bitcoins assigned to them, <tt>Accounts</tt> hold a bunch of <tt>addresses</tt> together and help you associate your funds with your purposes, and <tt>Wallets</tt> are contains of accounts.</p>
+			<p>In Safebit you can easily manage all of the three to make sure that everything is in order and easily managable.</p>
+			<p>In this section you can manage your <tt>Accounts</tt> and <tt>Addresses</tt>, feel free to create as many accounts and addresses as you need and want, they don't cost money and they'll only help you manage your funds better and smarter.</p>
+			
+			<!--
+			<div class="intro-buttons clearfix">
+				<div class="grid_1">&nbsp;</div>
+				<div class="grid_4 json-rpc">
+					<a rel="json-rpc" class="section-nav"><span>RPC Server</span></a>
+					<p>Configure the JSON-RPC server that you want to Safebit to work with. Safebit cannot function without a server.</p>
+				</div>
+				<div class="grid_1">&nbsp;</div>
+				<div class="grid_4 currencies">
+					<a rel="currencies" class="section-nav"><span>Currencies</span></a>
+					<p>You can configure what currency is displayed alongside with your bitcoin to display their value in your favorite value. This helps to have a better understanding of your networth.</p>
+				</div>
+				<div class="grid_1">&nbsp;</div>
+			</div>
+			-->
+		</article>
+		
+		
+		
+		<article class="manage-accounts active">
+			<div class="clearfix">
+				<div class="accounts grid_5">
+					<h1>Manage Accounts</h1>
+					<div class="list">
+					
+					</div>
+				</div>
+				<div class="grid_1">
+					&nbsp;
+				</div>
+				<div class="changing grid_6">
+					<div class="con">
+					
+					</div>
+					<div class="clearfix">
+						<div class="actions">
+							<a class="cancel-action button">Cancel</a>
+							<a class="save right button">Save</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="clearfix">
+				<div class="actions">
+					<a class="cancel button">Back</a>
+				</div>
+			</div>
+		</article>
+	</div>
+</script>
+
+<script type="text/template" id="account-block-template">
+	<div class="account">
+		<div class="icon"><img src="/static/icons/xfce-devel.png" /></div>
+		<h3>Account Name</h3>
+		<h4>Account Label or some other note</h4>
+		
+		<span class="main currency"><span class="amount">8,888.88</span> <span class="symbol btc">&#0579;</span></span>
+		
+		<span class="secondary currency"><span class="amount">8,888.88</span> <span class="symbol">$</span></span>
+		
+		<div class="actions">
+			<a rel="" class="notes"><span>Notes</span></a>
+			<a rel="" class="edit"><span>Edit Account</span></a>
+			<a rel="" class="currency"><span>Currency</span></a>
+		</div>
+	</div>
+</script>
+
+<script type="text/template" id="account-edit-notes-template">
+	<div class="edit-account-notes">
+		<h2>Edit Notes</h2>
+		<h3>Account: <span class="account">Account Name</span></h3>
+		<form>
+			<label class="note">
+				<span>From: </span>
+				<textarea name="account" placeholder="Account Notes" />
+			</label>
+		</form>
+	</div>
+</script>
+
+<script type="text/template" id="account-config-template">
+	<div class="edit-account-notes">
+		<h2>Config Account</h2>
+		<h3>Account: <span class="account">Account Name</span></h3>
+		<ul class="addresses">
+			
+		</ul>
+		
+	</div>
+</script>

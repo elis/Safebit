@@ -1,0 +1,85 @@
+<script type="text/javascript" src="/static/section/donate.js"></script>
+
+<script type="text/template" id="donate-template" class="sidemenu">
+	<nav>
+		<ul>
+			<li class="thanks "><a rel="thanks">Thanks!</a></li>
+		</ul>
+	</nav>
+	<div class="container">
+		<article class="welcome active">
+			<h1>Like what you see?</h1>
+			<p>If you like what you see, just think about all the things that you haven't seen!</p><!--'-->
+			<p>This is Safebit's first release to public, it has just the bare minimum to show off the technology, the UI, and the possibilities.</p>
+			<p>We're working hard to bring you the best of Bitcoin and make it as easy as possible to use and interact with Bitcoin, Safebit has two main themes to it: 1) Safety and Security, 2) Ease of Use and Accessibility. We're hoping to make Safebit the easiest way to use Bitcoins, and we're not going to stop until Bitcoin is accessible to everyone on Earth!</p>
+			<h2>Donate to Support!</h2>
+			<p>Just click the buttons below to donate, one click and you're done. No third party fees, no banks, no credit-card surcharges. Everything goes directly to the developers to make the software that YOU want!</p><!--'-->
+			
+			
+			<div class="intro-buttons clearfix">
+				<div class="grid_4 donate-05">
+					<a rel="donate-05"><span>Donate 0.5 &#0579;</span></a>
+					<p>Click here to donate 0.5 &#0579; (<span class="currency"><span class="amount">12</span> <span class="symbol">$</span>)</p>
+				</div>
+				<div class="grid_4 donate-1">
+					<a rel="donate-1"><span>Donate 1 &#0579;</span></a>
+					<p>Click here to donate 1 &#0579; (<span class="currency"><span class="amount">12</span> <span class="symbol">$</span>)</p>
+				</div>
+				<div class="grid_4 donate-other">
+					<a rel="donate-other"><span>Your Choice!</span></a>
+					<p>Donate as much as you want! it can be 0.0000001 &#0579; or 100 &#0579;, it's your choice, and there are no fees!</p><!--'-->
+				</div>
+			</div>
+		</article>
+		
+		
+		<article class="thanks ">
+			<h1>Thank You!</h1>
+			<p>This small section shows my gradidute towards people who have donated or supported Safebit in some way.</p>
+			<p>If you've helped Safebit along the way in some way and think your name should be here (or you want to take it out) feel free to email me to <a href="mailto:eli.sklar@gmail.com">eli.sklar@gmail.com</a>.</p><!--'-->
+			
+			<dl>
+				<dt>ttk2 - the first donation!</dt>
+				
+				<dt>abowlofcereal - the second donation!</dt>
+				
+				<dt>Zanimanski Valery - <a href="http://dribbble.com/lovicons" target="_blank">Dribbble</a> - <a href="http://www.lovicons.com/" target="_blank">Lovicons</a> - Safebit <a href="http://bitco.tumblr.com/post/8165643877/safebit-has-a-sexy-new-icon-d-thanks-to" target="_blank">Icon</a> - Hire him if you like the Safebit Icon!</dt>
+				
+				<dt>André Perdigão - donation</dt>
+			</dl>
+			
+			
+			<div class="clearfix">
+				<div class="actions">
+					<a class="cancel button">Back</a>
+				</div>
+			</div>
+		</article>
+	</div>
+</script>
+
+<script type="text/template" id="confirm-donation-dialog-template">
+	<form id="confirm-tx">
+		<article>
+			<p>You are about to donate <span class="currency btc"><span class="amount">0.00</span> &#0579;</span> or <span class="currency other"><span class="amount">0.00</span> <span class="symbol">$</span></span>.</p>
+			<p>Click "Confirm" if you'd like to confirm the donation...</p><!--'-->
+		</article>
+	</form>
+</script>
+
+<script type="text/template" id="custom-donation-dialog-template">
+	<form id="confirm-tx">
+		<article>
+			<p>Please enter the amount you'd like to donate:</p><!--'-->
+			<label><input type="text" class="amount" /></label>
+		</article>
+	</form>
+</script>
+
+<script type="text/template" id="donation-sent-dialog-template">
+	<article>
+		<p>You're donation is on it's way! I really appreciate it and would like to thank you personally and add on you our "Thank You!" wall, if you'd like to appear there, feel free to send me an email with the details you'd like to put there to <a href="mailto:eli.sklar@gmail.com">eli.sklar@gmail.com</a></p>
+		<p>The transaction ID: <ins class="tx_id"></ins></p>
+		<p>Thank you for supporting Safebit!</p>
+	</article>
+</script>

@@ -1,0 +1,929 @@
+@import "fonts/droid-sans/stylesheet.css";
+@import "header.css";
+
+html {
+	background: #FFF;
+}
+
+body {
+	font: 13px/24px normal "DroidSansRegular";
+}
+body * {
+	cursor: default;
+}
+#main {
+	background: #FFF;
+	position: absolute;
+	left: 0; top: 0; right: 0; bottom: 0;
+}
+
+#content {
+	overflow: hidden;
+	position: absolute;
+	top: 99px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	margin: 0;
+}
+
+#content p {
+	margin: 0 0 1em;
+}
+	
+#content ins {
+	padding: 0 3px;
+}
+	
+#content h1 {
+	font-size: 15px;
+	border-bottom: 1px solid #999;
+	padding: 0 8px;
+	margin: 0 -8px 12px;
+}
+#content h2 {
+	font-size: 13px;
+	border-bottom: 1px solid #999;
+	padding: 0 8px;
+	margin: 0 -8px 12px;
+}
+
+#content a[href] {
+	cursor: pointer;
+}
+
+#content ::-webkit-scrollbar {
+	height: 10px;
+	width: 8px;
+	background-color: #FFF;
+}
+
+#content ::-webkit-scrollbar-thumb {
+	background: #696969;
+	-webkit-border-radius: 5px;
+	height: 25px;
+}
+
+#content ::-webkit-scrollbar-track {
+	background-color: inherit;
+
+}
+
+
+	#content section {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		padding: 12px 0 0;
+		display: block;
+		-webkit-transform: translateY(-100%);
+		-webkit-transition: -webkit-transform 0.15s cubic-bezier(0.785, 0.135, 0.150, 0.860), opacity 0.25s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+		-webkit-backface-visibility: hidden;
+		-webkit-transform-origin: 0 0;
+		opacity: 0;
+		overflow: hidden;
+	}
+	#content section.active {
+		/*
+		x-webkit-transform: scale(1.00) rotateX(0deg) rotateY(0deg) translate(0px, 0px) skew(0deg, 0deg) scaleZ(1.0) rotateZ(0deg) translateZ(0px) ;
+		-webkit-transform: rotateY( 0deg );
+		*/
+		-webkit-transform: translateY(0);
+		opacity: 1;
+		overflow: auto;
+	}
+	#content section:first-child {
+		display: block;
+	}
+		#content section article {
+			padding: 0 16px;
+			margin-bottom: 1em;
+		}
+		
+	#content section .waiting h1,
+	#content section .waiting h2 {
+		background: url('/static/images/bounce.gif') -5px 0 no-repeat;
+	}
+	
+	
+/*
+                                                                                 
+ ad88888ba   88           88              888b      88                           
+d8"     "8b  ""           88              8888b     88                           
+Y8,                       88              88 `8b    88                           
+`Y8aaaaa,    88   ,adPPYb,88   ,adPPYba,  88  `8b   88  ,adPPYYba,  8b       d8  
+  `"""""8b,  88  a8"    `Y88  a8P_____88  88   `8b  88  ""     `Y8  `8b     d8'  
+        `8b  88  8b       88  8PP"""""""  88    `8b 88  ,adPPPPP88   `8b   d8'   
+Y8a     a8P  88  "8a,   ,d88  "8b,   ,aa  88     `8888  88,    ,88    `8b,d8'    
+ "Y88888P"   88   `"8bbdP"Y8   `"Ybbd8"'  88      `888  `"8bbdP"Y8      "8"      
+ 
+ 
+
+	Side navigation */
+	
+	#content section.sidemenu {
+	}
+	section.sidemenu nav {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 160px;
+		bottom: 0;
+		background: #FFF;
+	}
+		.sidemenu nav:before {
+			width: 1px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background: -webkit-linear-gradient(top, #CCC, #FFF 40%);
+			content: '';
+		}
+		
+	.sidemenu nav li {
+		
+	}
+		.sidemenu nav li a {
+			font: bold 11px Verdana;
+			display: block;
+			height: 23px;
+			border-bottom: 1px solid #CCC;
+			background: url('../imgv2/icons.png') no-repeat;
+			color: #666;
+			cursor: pointer;
+			padding: 9px 0 0 31px;
+			-webkit-transition: background-color 0.20s cubic-bezier(0.785, 0.135, 0.150, 0.860), opacity 0.25s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+		}
+		.sidemenu nav li a:hover,
+		.sidemenu nav li.active a {
+			background-color: #EEE;
+			color: #333;
+		}
+			
+	.sidemenu .container {
+		position: absolute;
+		top: 0;
+		left: 160px;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		-webkit-perspective: 1000;
+	}
+	#content section.sidemenu .container article {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 20px 20px 0;
+		overflow: auto;
+		/*-webkit-transform: translateX(120%);
+		-webkit-transition: -webkit-transform 0.35s cubic-bezier(0.785, 0.135, 0.150, 0.860), opacity 0.25s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+		-webkit-backface-visibility: hidden;
+		-webkit-transform-origin: 0 0;
+		*/
+		
+		-webkit-transition: opacity 0.1s cubic-bezier(0.000, 0.990, 0.000, 0.015), -webkit-transform 0.45s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+		-webkit-transform: translateX(-120%);
+		-webkit-transform-origin: 00% 0%;
+		-webkit-backface-visibility: hidden;
+		opacity: 0;
+	}
+	#content section.sidemenu .container article.active {
+		position: absolute;
+		opacity: 1;
+				-webkit-transform: translateX(0) translateZ(0);
+	}
+	.sidemenu .container article.hideaway {
+		-webkit-transform-origin: 100% 0;
+		-webkit-transform: rotateY(180deg) ;
+	}
+	
+	
+/*8888ba                       dP                                     
+88    `8b                      88                                     
+88     88 .d8888b. dP   .dP    88 .d8888b. .d8888b. 88d888b. .d8888b. 
+88     88 88'  `88 88   d8'    88 88'  `"" 88'  `88 88'  `88 Y8ooooo. 
+88     88 88.  .88 88 .88'     88 88.  ... 88.  .88 88    88       88 
+dP     dP `88888P8 8888P'      dP `88888P' `88888P' dP    dP `88888P' 
+                                                                      
+                                                                    */
+
+.sidemenu nav li.send a {
+	background-position: 3px -558px;
+}
+.sidemenu nav li.send a:hover,
+.sidemenu nav li.send.active a {
+	background-position: 3px -588px;
+}
+
+.sidemenu nav li.receive a {
+	background-position: 3px -618px;
+}
+.sidemenu nav li.receive a:hover,
+.sidemenu nav li.receive.active a {
+	background-position: 3px -648px;
+}
+
+.sidemenu nav li.exchange a {
+	background-position: 3px -678px;
+}
+.sidemenu nav li.exchange a:hover,
+.sidemenu nav li.exchange.active a {
+	background-position: 3px -708px;
+}
+
+.sidemenu nav li.contracts a {
+	background-position: 3px -497px;
+}
+.sidemenu nav li.contracts a:hover,
+.sidemenu nav li.contracts.active a {
+	background-position: 3px -528px;
+}
+
+.sidemenu nav li.thanks a {
+	background-position: 3px -798px;
+}
+.sidemenu nav li.thanks a:hover,
+.sidemenu nav li.thanks.active a {
+	background-position: 3px -828px;
+}
+
+/* Settings Tab */
+.sidemenu nav li.rpc a {
+	background-position: 3px -340px;
+}
+.sidemenu nav li.rpc a:hover,
+.sidemenu nav li.rpc.active a {
+	background-position: 3px -738px;
+}
+
+.sidemenu nav li.currencies a {
+	background-position: -793px -174px;
+}
+.sidemenu nav li.currencies a:hover,
+.sidemenu nav li.currencies.active a {
+	background-position: -793px -204px;
+}
+
+	
+
+/** Intro Buttons **/
+.intro-buttons .send-funds a span {
+	background-position: -390px -511px;
+}
+.intro-buttons .receive-funds a span {
+	background-position: -390px -551px;
+}
+.intro-buttons .json-rpc a span {
+	background-position: -390px -631px;
+}
+.intro-buttons .currencies a span {
+	background-position: -390px -671px;
+}
+.intro-buttons .donate-05 a span {
+	background-position: -390px -711px;
+}
+.intro-buttons .donate-1 a span {
+	background-position: -390px -751px;
+}
+.intro-buttons .donate-other a span {
+	background-position: -390px -791px;
+}
+
+
+
+.account .actions .notes {
+	background-position: -796px -690px;
+}
+.account .actions .edit {
+	background-position: -796px -720px;
+}
+.account .actions .currency {
+	background-position: -796px -750px;
+}
+			
+
+
+/*
+
+                                                             
+888888888888         88           88                         
+     88              88           88                         
+     88              88           88                         
+     88  ,adPPYYba,  88,dPPYba,   88   ,adPPYba,  ,adPPYba,  
+     88  ""     `Y8  88P'    "8a  88  a8P_____88  I8[    ""  
+     88  ,adPPPPP88  88       d8  88  8PP"""""""   `"Y8ba,   
+     88  88,    ,88  88b,   ,a8"  88  "8b,   ,aa  aa    ]8I  
+     88  `"8bbdP"Y8  8Y"Ybbd8"'   88   `"Ybbd8"'  `"YbbdP"'  
+                                                             
+                                                           
+
+	TABLES */
+table {
+	font-size: 12px;
+}
+table.full {
+	width: 100%;
+}
+	table tbody th {
+		font-weight: normal;
+		text-align: left;
+		position: relative;
+	}
+
+	table tbody th .action {
+		display: block;
+		position: absolute;
+		width: 10px;
+		left: -12px;
+	}
+		table tbody th .action span {
+			display: none;
+		}
+	table tbody .currency {
+		width: 110px;
+		text-align: right;
+		padding-right: 4px;
+	}
+		table tbody .currency .symbol {
+			font-family: Arial;
+			float: right;
+			position: relative;
+			width: 10px;
+			display: block;
+			margin-left: 3px;
+			text-align: left;
+		}
+	table tbody .time {
+		text-align: right;
+		width: 110px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	
+/*
+
+ 888888ba             dP     dP                              dP 
+ 88    `8b            88     88                              88 
+a88aaaa8P' dP    dP d8888P d8888P .d8888b. 88d888b. .d8888b. 88 
+ 88   `8b. 88    88   88     88   88'  `88 88'  `88 Y8ooooo. dP 
+ 88    .88 88.  .88   88     88   88.  .88 88    88       88    
+ 88888888P `88888P'   dP     dP   `88888P' dP    dP `88888P' oo 
+                                                                
+                                                                
+
+	Buttons */
+
+/* UI Buttons */
+.ui-dialog button {
+	cursor: pointer;
+}
+	.ui-dialog button span {
+		cursor: pointer;
+	}
+
+.button,
+.ui-dialog button {
+	display: inline-block;
+	border-radius: 3px;
+	border: 1px solid #999;
+	padding: 8px 8px 9px 30px;
+	color: #000;
+	cursor: pointer;
+	background: #CCC url('../images/temp-header-sprite.png') bottom left no-repeat;
+	font: bold 11px Verdana;
+	color: #525252;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.55);
+}
+
+.button:hover,
+.ui-dialog button:hover {
+	color: #222;
+}
+
+.button.right,
+.ui-dialog button.right {
+	float: right;
+}
+
+.button.cancel,
+.ui-dialog button.cancel {
+	background-color: #B7DFFA;
+	border-color: #0C6CAC;
+	background-position: 5px -161px;
+}
+
+.button.ok,
+.ui-dialog button.ok {
+	background-position: 5px -186px;
+}
+.button.disabled,
+.ui-dialog button.disabled {
+	cursor: default;
+	opacity: 0.65;
+}
+.button.disabled:hover,
+.ui-dialog button.disabled:hover {
+	opacity: 0;
+}
+.button.confirm,
+.ui-dialog button.confirm {
+	float: right;
+	background-image: url('../imgv2/icons.png') ;
+}
+
+
+/* Button Colors */
+.button.yellow,
+.ui-dialog button.yellow {
+	background-color: #FC3;
+	border-color: #F90;
+}
+.button.yellow:hover,
+.ui-dialog button.yellow:hover {
+	border-color:  #F00;
+	background-color: #F93;
+}
+
+	/* Blue */
+	.button.blue,
+	.ui-dialog button.blue {
+		background-color: #A1DEFF;
+		border-color: #0068A1;
+	}
+	.button.blue:hover,
+	.ui-dialog button.blue:hover {
+		background-color: #82CDFF;
+		border-color:  #82CDFF;
+	}
+
+
+
+/* Button Icons */
+.button.key,
+.ui-dialog button.key {
+	background-position: -392px -254px;
+}
+.button.key-red,
+.ui-dialog button.key-red {
+	background-position: -392px -283px;
+}
+
+/*
+
+ 88888888b                                       
+ 88                                              
+a88aaaa    .d8888b. 88d888b. 88d8b.d8b. .d8888b. 
+ 88        88'  `88 88'  `88 88'`88'`88 Y8ooooo. 
+ 88        88.  .88 88       88  88  88       88 
+ dP        `88888P' dP       dP  dP  dP `88888P' 
+                                                 
+                                                 
+
+	FORMS */
+	
+form {
+	
+}
+	form label {
+		display: block;
+		margin-bottom: 14px;
+		position: relative;
+		clear: left;
+	}
+		form label span {
+			display: block;
+			padding: 4px 0 2px;
+		}
+	
+	form select {
+		border: 5px solid #E6ECEE;
+		border-color:#E6ECEE #E6ECEE #E6ECEE #E6ECEE #333;
+		border-radius: 4px;
+		background: #FFF;
+		box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.4);
+		height: 38px;
+		padding: 0 0 0 4px;
+		font-family: "DroidSansRegular";
+		width: 226px;
+	}
+	form textarea {
+		border: 1px solid rgba(151,151,151,0.6);
+		border-radius: 1px;
+		background: #FFF;
+		box-shadow: inset 0.5px 1px 3px rgba(69,75,89, 0.56), 0 0 0 4px #E6ECEE;
+		padding: 8px;
+		font-family: "DroidSansRegular";
+		-webkit-transition: box-shadow 250ms, border 250ms;
+		display: block;
+		width: 90%;
+	}
+	form input[type=text] {
+		border: 1px solid rgba(151,151,151,0.6);
+		border-radius: 1px;
+		background: #FFF;
+		box-shadow: inset 0.5px 1px 3px rgba(69,75,89, 0.56), 0 0 0 4px #E6ECEE;
+		height: 28px;
+		padding: 0 0 0 8px;
+		font-family: "DroidSansRegular";
+		-webkit-transition: box-shadow 250ms, border 250ms;
+		display: block;
+		width: 100%;
+	}
+	form input[type=text]:focus {
+		outline: none;
+		box-shadow: inset 0.5px 1px 3px rgba(69, 75, 89, 0.56), 0 0 0 4px #838D91;
+		border: 1px solid rgba(81,81,81,1);
+	}
+	form input[type=text]:hover {
+		border: 1px solid rgba(81,81,81,1);
+	}
+	
+	form input[type=text].blue {
+		box-shadow: inset 0.5px 1px 3px rgba(69, 75, 89, 0.56), 0 0 0 4px rgba(7,93,222, 0.6);
+	}
+	
+	form input[type=text].good {
+		box-shadow: inset 0.5px 1px 3px rgba(69, 75, 89, 0.56), 0 0 0 4px rgba(40, 180, 40, 0.6);
+	}
+	form input[type=text].error,
+	form input[type=text].bad {
+		box-shadow: inset 0.5px 1px 3px rgba(69, 75, 89, 0.56), 0 0 0 4px rgba(180,40,40, 0.6);
+	}
+	form label .details {
+		display: none;
+		clear:both;
+	}
+	form label label {
+		display: inline;
+	}
+		form label label span {
+			display: inline;
+		}
+		form label label input[checked] {
+			background: #F00;
+		}
+
+
+
+/*
+.d88888b                                 dP      .d88888b           dP                     dP   
+88.    "'                                88      88.    "'          88                     88   
+`Y88888b. 88d8b.d8b. .d8888b. 88d888b. d8888P    `Y88888b. .d8888b. 88 .d8888b. .d8888b. d8888P 
+      `8b 88'`88'`88 88'  `88 88'  `88   88            `8b 88ooood8 88 88ooood8 88'  `""   88   
+d8'   .8P 88  88  88 88.  .88 88         88      d8'   .8P 88.  ... 88 88.  ... 88.  ...   88   
+ Y88888P  dP  dP  dP `88888P8 dP         dP       Y88888P  `88888P' dP `88888P' `88888P'   dP   
+                                                                                                */
+
+/* Smart Select (Select Account) */
+form .dropdown-button {
+	position: absolute;
+	display: block;
+	height: 22px;
+	width: 25px;
+	font-size: 7px;
+	font-family: Arial;
+	color: #000;
+	background: #F1F1F1;
+	border: 1px solid #FFF;
+	text-align: center;
+	margin-left: -20px;
+	margin-top: 3px;
+	box-shadow: 0 0 0 1px #707070;
+	-webkit-transition: box-shadow 250ms, background 250ms;
+}
+form label:hover .dropdown-button {
+	background: -webkit-linear-gradient(top, #eaf6fd 0%,#d9f0fc 50%,#bee6fd 50%,#a7d9f5 100%);
+	box-shadow: 0 0 0 1px #3C7FB1;
+}
+
+.dd-account {
+	border: 1px solid rgba(81,81,81,1);
+	border-top: 0 none;
+	background: #FFF;
+			
+}
+	.dd-account li {
+	}
+		.dd-account li a {
+			padding: 0 0 0 8px;
+			display: block;
+			font-size: 13px;
+			line-height: 18px;
+			cursor: pointer;
+			color: #333;
+			padding: 4px 0 4px 4px;
+		}
+		.dd-account li a:hover {
+			background: #838D91;
+			color: #E6ECEE;
+		}
+			.dd-account li a span {
+				display: none;
+			}
+		.dd-account li a:hover, .dd-account li a.ui-state-hover {
+			background: #CCC;
+			color: #232c2e;
+			font-weight: bold;
+		}
+		.dd-account li a:hover span, .dd-account li a.ui-state-hover span {
+			display: block;
+			float: right;
+			margin-right: 20px;
+		}
+
+
+
+/* Radio List */
+
+label.radio-list {
+	
+}
+	.radio-list label {
+		display: block;
+		cursor: pointer;
+		margin: 0 0 ;
+		background: url('../imgv2/icons.png') -799px -456px no-repeat;
+		padding: 0 0 0 22px;
+		xborder: 1px solid #AAA;
+	}
+	.radio-list label:hover {
+		background: url('../imgv2/icons.png') -799px -596px no-repeat;
+	}
+	.radio-list label.selected,
+	.radio-list label.checked {
+		background: url('../imgv2/icons.png') -799px -516px no-repeat;
+		font-weight: bold;
+	}
+		.radio-list label input {
+			display: none;
+		}
+		.radio-list label span {
+			cursor: pointer;
+		}
+
+
+/*8888ba  oo          dP                            
+88    `8b             88                            
+88     88 dP .d8888b. 88 .d8888b. .d8888b. .d8888b. 
+88     88 88 88'  `88 88 88'  `88 88'  `88 Y8ooooo. 
+88    .8P 88 88.  .88 88 88.  .88 88.  .88       88 
+8888888P  dP `88888P8 dP `88888P' `8888P88 `88888P' 
+                                       .88          
+                                   d8888P           
+
+    Dialogs */
+
+
+.ui-widget-overlay {
+	top: 97px;
+	position: absolute;
+	background: -webkit-radial-gradient(center, rgba(0, 0, 0, 0.5), rgba(0,0,0,0.85));
+}
+.ui-dialog {
+	width: 420px;
+	border-radius: 4px;
+	box-shadow: 0 0 20px 1px rgba(0,0,0,0.9);
+	background: url('../imgv2/mesh-overlay.png') top left repeat, -webkit-linear-gradient(top, #F1F1F1, #D2D2D2);
+}
+.ui-dialog-titlebar {
+	background: -webkit-linear-gradient(
+        top,
+        rgba(211,211,211,0.7),
+        rgba(255,255,255,0.9)
+    );
+	border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+	border-radius: 4px 4px 0 0;
+}
+
+.yellow .ui-dialog-titlebar {
+	background: -webkit-linear-gradient(
+        top,
+        #FFC002,
+        #FFE080
+    );
+}
+.blue .ui-dialog-titlebar {
+	background: -webkit-linear-gradient(
+        top,
+        #5BB8FF,
+        #219FFF
+    );
+}
+.green .ui-dialog-titlebar {
+	background: -webkit-linear-gradient(
+        top,
+        #5BFF84,
+        #21FF59
+    );
+}
+
+.ui-dialog-titlebar .ui-dialog-title {
+	display: block;
+	font-size: 26px;
+	padding: 11px 12px 8px;
+	margin: 0;
+
+}
+.ui-dialog article {
+	padding: 8px 12px;
+	font-size: 15px;
+	text-shadow: 1px 1px 1px rgba(240, 240, 240, 0.4);
+	overflow-x: auto;
+}
+
+
+.ui-dialog-buttonpane {
+	padding: 8px 12px;
+	border-top: 1px solid rgba(160,160,160,0.4);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+	border-radius: 0 0 4px 4px;
+	overflow:auto;
+}
+
+
+
+/*
+
+ .88888.    dP   dP                                  
+d8'   `8b   88   88                                  
+88     88 d8888P 88d888b. .d8888b. 88d888b.          
+88     88   88   88'  `88 88ooood8 88'  `88          
+Y8.   .8P   88   88    88 88.  ... 88        
+ `8888P'    dP   dP    dP `88888P' dP       88 88 88 
+                                                     
+
+	Other... */
+
+
+a#fdbk_tab.fdbk_tab_bottom {
+	left: 20px !important;
+}
+
+
+#confirm-tx label {
+	width: auto;
+	margin: 0;
+	padding: 12px;
+
+}
+
+#confirm-tx label input {
+	width: 120px;
+	margin: 0 auto;
+}
+
+
+
+
+.intro-buttons {
+	margin-top: 24px;
+}
+	.intro-buttons a {
+		border-radius: 5px;
+		background: -webkit-linear-gradient(top, rgba(0, 153, 51, 0.7), rgba(0, 153, 51, 0.7)), url('../imgv2/mesh-overlay.png'), #093;
+		display: block;
+		font-size: 25px;
+		color: #FFF;
+		margin-bottom: 8px;
+		cursor: pointer;
+	}
+	.intro-buttons a:hover {
+		box-shadow: 0 0 6px #093;
+	}
+		.intro-buttons a span {
+			padding: 8px 8px 8px 47px;
+			display: block;
+			cursor: pointer;
+			background: url('../imgv2/icons.png') left top no-repeat;
+		}
+	.intro-buttons p {
+		font-size: 11px;
+		line-height: 16px;
+		text-align: center;
+	}
+
+
+
+/** Accounts **/
+
+.accounts .account {
+	background: #F5F8FA;
+	border-radius: 4px;
+	height: 70px;
+	padding: 5px;
+	position: relative;
+	margin-bottom: 1em;
+}
+.accounts .account.small {
+	height: 20px;
+}
+	.account .icon {
+		float: left;
+		width: 64px;
+		height: 64px;
+		text-align: center;
+		line-height: 64px;
+	}
+	.account.small .icon {
+		display: none;
+	}
+	.account h3 {
+		font-size: 18px;
+		font-weight: normal;
+		padding: 0;
+		margin: 0 0 6px;
+		line-height: 16px;
+	}
+	.account h4 {
+		font-size: 12px;
+		font-weight: normal;
+		padding: 0;
+		margin: 0;
+		line-height: 12px;
+	}
+	.account.small h4 {
+		display: block;
+	}
+	
+	.account .currency {
+		color: #0C0;
+		font-family: Candara;
+		position: absolute;
+	}
+	.account.small .currency {
+		display: none;
+	}
+	.account .main.currency {
+		font-size: 30px;
+		left: 70px;
+		bottom: 10px;
+	}
+	.account .currency span {
+		xtext-shadow: 1px 1px 2px white, -1px -1px -1px #444;
+	}
+		
+		.account .currency .amount {
+		}
+		.account .main.currency .btc {
+			font-family: Arial;
+		}
+	.account .secondary.currency {
+		font-size: 16px;
+		right: 40px;
+		bottom: 5px;
+		text-align: right;
+	}
+		.account .secondary.currency span {
+			text-shadow: none;
+			color: #090;
+		}
+		
+	.account .actions {
+		position: absolute;
+		width: 28px;
+		height: 74px;
+		right: 0;
+		top: 0px;
+		border-radius: 0 4px 4px 0;
+		background: rgba(51,51,51,0.51);
+		border-left: 1px solid rgba(102,102,102,0.6);
+		padding-top: 6px;
+	}
+	.account.small .actions {
+		display: none;
+	}
+		.account .actions a {
+			width: 28px;
+			height: 22px;
+			display: block;
+			background: url('../imgv2/icons.png') no-repeat;
+			cursor: pointer;
+			-webkit-transition: background-color 150ms cubic-bezier(0.785, 0.135, 0.150, 0.860), opacity 0.25s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+		}
+		.account .actions a:hover {
+			background-color: #CCC;
+		}
+			.account .actions a span {
+				display: none;
+			}
+			.account .actions a:hover span {
+				display: block;
+				position: absolute;
+				left: 29px;
+				background: #111;
+				border: 1px solid #666;
+				color: #FFF;
+				font-size: 10px;
+				line-height: 14px;
+				font-family: verdana;
+				width: 80px;
+				border-radius: 4px;
+				padding: 2px 4px 4px;
+				-webkit-transition: all 150ms cubic-bezier(0.785, 0.135, 0.150, 0.860), opacity 0.25s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+			}

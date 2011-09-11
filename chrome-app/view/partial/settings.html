@@ -1,0 +1,125 @@
+<script type="text/javascript" src="/static/section/settings.js"></script>
+
+<script type="text/template" id="settings-template" class="sidemenu">
+	<nav>
+		<ul>
+			<li class="rpc json-rpc"><a rel="json-rpc">RPC Server</a></li>
+			<li class="currencies "><a rel="currencies">Currencies</a></li>
+			<!--<li class="receive"><a rel="receive-funds">Receive Funds</a></li>-->
+		</ul>
+	</nav>
+
+	<div class="container">
+		<article class="welcome active">
+			<h1>Safebit Settings</h1>
+			<p>In this section you can configure the inner workings of Safebit to your needs and likes. Feel free to browse around but be careful when changing stuff, it can break if you're not careful!</p><!-- ' -->
+			
+			
+			<div class="intro-buttons clearfix">
+				<div class="grid_1">&nbsp;</div>
+				<div class="grid_4 json-rpc">
+					<a rel="json-rpc" class="section-nav"><span>RPC Server</span></a>
+					<p>Configure the JSON-RPC server that you want to Safebit to work with. Safebit cannot function without a server.</p>
+				</div>
+				<div class="grid_1">&nbsp;</div>
+				<div class="grid_4 currencies">
+					<a rel="currencies" class="section-nav"><span>Currencies</span></a>
+					<p>You can configure what currency is displayed alongside with your bitcoin to display their value in your favorite value. This helps to have a better understanding of your networth.</p>
+				</div>
+				<div class="grid_1">&nbsp;</div>
+			</div>
+		</article>
+		
+	
+		<article class="json-rpc ">
+			<div class="clearfix">
+				<div class="grid_5">
+					<a rel="balance" class="action"></a>
+					<h1>RPC Server Configuration</h1>
+					<form id="safebit_settings" action="">
+						<label class="rpc_user">
+							<span>RPC User: </span>
+							<input type="text" name="rpc_user" placeholder="Enter your JSON-RPC user" />
+						</label>
+
+						<label class="rpc_password">
+							<span>RPC Password:</span>
+							<input type="text" name="rpc_password" placeholder="Enter your JSON-RPC password"/>
+						</label>
+
+						<label class="rpc_server">
+							<span>RPC Server:</span>
+							<input type="text" name="rpc_server" placeholder="Enter your JSON-RPC server address"/>
+						</label>
+
+						<label class="rpc_port">
+							<span>RPC Port:</span>
+							<input type="text" name="rpc_port" placeholder="Enter your JSON-RPC port"/>
+						</label>
+
+						<label class="rpc_ssl">
+							<span>SSL:</span>
+							<label><input type="radio" name="rpc_ssl" value="0" checked> <span>No</span></label>
+							<label><input type="radio" name="rpc_ssl" value="1"> <span>Yes</span></label>
+						</label>
+					</form>
+				</div>
+				<div class="grid_1">
+					&nbsp;
+				</div>
+				<div class="grid_6">
+					<h2>Info</h2>
+					<p>JSON-RPC Server is a peice of software that Safebit needs to communicate with the Bitcoin network, it'<!-- ' -->s also refered to as <ins>bitcoin daemon</ins>.</p>
+					<p>The most well known and trusted <ins>bitcoin daemon</ins> is the official Bitcoin client availble to download from <a href="http://www.bitcoin.org/" target="_blank">www.bitcoin.org</a></p>
+					
+					<p>&nbsp;</p>
+					
+					<h3>Configure Bitcoin</h3>
+					<p>If you need help configuring your bitcoin client to work with JSON-RPC, please refer to <a href="https://en.bitcoin.it/wiki/Running_Bitcoin" target="_blank">wiki/Running_Bitcoin</a>.</p>
+				</div>
+			</div>
+			<div class="clearfix">
+				<div class="actions">
+					<a class="cancel button">Cancel</a>
+					<a class="save button yellow key right">Save Settings</a>
+				</div>
+			</div>
+		</article>
+		
+		
+		
+		<article class="currencies ">
+			<div class="clearfix">
+				<div class="grid_5">
+					<a rel="balance" class="action"></a>
+					<h1>Currencies Configuration</h1>
+					<form id="currencies_settings" action="">
+						<label class="currency radio-list">
+							<span>Select the currency you want to display:</span>
+							<label><input type="radio" name="currency" value="1"> <span>USD</span></label>
+							<label><input type="radio" name="currency" value="2"> <span>NIS</span></label>
+							<label><input type="radio" name="currency" value="3"> <span>AUD</span></label>
+							<label><input type="radio" name="currency" value="4"> <span>GBP</span></label>
+							<label><input type="radio" name="currency" value="5"> <span>YEN</span></label>
+							<label class="selected"><input checked="checked" type="radio" name="currency" value="none"> <span>None</span></label>
+						</label>
+					</form>
+				</div>
+				<div class="grid_1">
+					&nbsp;
+				</div>
+				<div class="grid_6">
+					<h2>Info</h2>
+					<p>Safebit allows you to show your wallet in more than just Bitcoin value, you can configure it to show along side the BTC values also the <span style="text-decoration: underline">daily weighted price</span> of your bitcoin in the currency of your choice, for example USD.</p>
+					<p>Currently Safebit supports the currencies that are tracked by <a href="http://bitcoincharts.com/" target="_blank">Bitcoin Charts</a>, in the future we plan to add support for more currencies including other digital currencies.</p>
+				</div>
+			</div>
+			<div class="clearfix">
+				<div class="actions">
+					<a class="cancel button">Cancel</a>
+					<a class="save button yellow key right">Save Settings</a>
+				</div>
+			</div>
+		</article>
+	</div>
+</script>
