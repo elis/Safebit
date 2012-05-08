@@ -473,7 +473,7 @@ d888888P          888888ba             dP            oo dP
 		initAccountInputs();
 		$section.trigger('sendFormUpdated');
 	}
-	
+
 	return {
 		type: 'section',
 		name: 'funds',

@@ -23,15 +23,13 @@ var sectionSettings = (function() {
 		bindStuff();
 
 		base('getSettings', function (result) {
-			safebitui.setAppSettings(result);
-			populateSettings(result);
-			
-			
-		
-		
 			// Get all available currencies
 			var curlist = $('.currency.radio-list', section);
 			var selCurrency = safebitui.appSettings.currency || false;
+			
+			safebitui.setAppSettings(result);
+			populateSettings(result);
+			
 			safebitui.baseCall('getBTCValue', function (curs) {
 				curlist.empty();
 				if (curs) {
@@ -58,13 +56,12 @@ var sectionSettings = (function() {
 		$('.rpc_password input', section).val(data.rpcpass);
 		$('.rpc_port input', section).val(data.rpcport);
 		$('.rpc_server input', section).val(data.rpcserver);
+		console.log(data);
+		$('#general_settings [name="devmode"]').attr('checked', data.devMode);
 	}
-
-	function saveSettings (event) {
-		if (typeof event != 'undefined') {}
-		
-		// Save JSON-RPC
-		if (safebitui.activeSubSection == 'json-rpc') {
+	
+	var saveSettingsSwitch = {
+		'json-rpc': function () {
 			var props = {
 				rpcuser: $('.rpc_user input', section).val(),
 				rpcpass: $('.rpc_password input', section).val(),
@@ -77,17 +74,23 @@ var sectionSettings = (function() {
 					safebitui.checkRpcServer();
 				}
 			}, props);
-		}
-		
-		
-		// Save Currency
-		if (safebitui.activeSubSection) {
+		},
+		'currencies': function () {
 			var currency = $('.currencies .radio-list .selected input', section).val();
 			if (currency == 'none') currency = false;
 			safebitui.appSettings.currency = currency;
 			safebitui.baseCall('setSettings', function (result) {
 			}, {currency: currency});
+		},
+		'general': function () {
+			var devMode = !!$('#general_settings [name="devmode"]:checked', section).val();
+			safebitui.setAppSettings({'devMode': devMode});
 		}
+	}
+
+	function saveSettings (event) {
+		
+		saveSettingsSwitch[safebitui.activeSubSection]();
 	}
 
 

@@ -1,5 +1,3 @@
-<script type="text/javascript" src="/static/section/funds.js"></script>
-
 <script type="text/template" id="account-select-row-template">
 	<option value="account-name">
 		<span class="name">Account Name</span> 
@@ -50,7 +48,8 @@
 					<form id="send_funds" method="post" enctype="application/x-www-form-urlencoded">
 						<label class="account">
 							<span>From: </span>
-							<input type="text" name="account" placeholder="Select an Acocunt" />
+							<!-- input type="text" name="account" placeholder="Select an Acocunt" /-->
+							<select name="account" data-list="accounts"></select>
 							<span class="details">
 								Select an existing account
 							</span>

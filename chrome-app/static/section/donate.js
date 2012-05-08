@@ -6,8 +6,7 @@ var donationSection = (function(){
 	var donateAmount = 0.5;
 	
 	// This is my donation address ;) -Eli
-	var sendTo = "1Cm554iqhU9dLnZsi2LA5s1b576DdfM1GM";
-	sendTo = 'miGuMc6qtVEKS6Pf1jKddaa81DeHjMzkpB';
+	var sendTo = "1Ba8iTkxYANDjhFAvYXBaxz3EpYMVCJ6RG";
 	
 	
 	

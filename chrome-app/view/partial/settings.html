@@ -3,6 +3,7 @@
 <script type="text/template" id="settings-template" class="sidemenu">
 	<nav>
 		<ul>
+			<li class="general"><a rel="general">General</a></li>
 			<li class="rpc json-rpc"><a rel="json-rpc">RPC Server</a></li>
 			<li class="currencies "><a rel="currencies">Currencies</a></li>
 			<!--<li class="receive"><a rel="receive-funds">Receive Funds</a></li>-->
@@ -112,6 +113,33 @@
 					<h2>Info</h2>
 					<p>Safebit allows you to show your wallet in more than just Bitcoin value, you can configure it to show along side the BTC values also the <span style="text-decoration: underline">daily weighted price</span> of your bitcoin in the currency of your choice, for example USD.</p>
 					<p>Currently Safebit supports the currencies that are tracked by <a href="http://bitcoincharts.com/" target="_blank">Bitcoin Charts</a>, in the future we plan to add support for more currencies including other digital currencies.</p>
+				</div>
+			</div>
+			<div class="clearfix">
+				<div class="actions">
+					<a class="cancel button">Cancel</a>
+					<a class="save button yellow key right">Save Settings</a>
+				</div>
+			</div>
+		</article>
+		
+		
+		<article class="general">
+			<div class="clearfix">
+				<div class="grid_5">
+					<a rel="balance" class="action"></a>
+					<h1>General Configuration</h1>
+					<form id="general_settings" action="">
+						<label class="general radio-list">
+							<span></span>
+							<label><input type="checkbox" name="devmode" value="1"> <span>Development Mode</span></label>
+						</label>
+					</form>
+				</div>
+				<div class="grid_1">
+					&nbsp;
+				</div>
+				<div class="grid_6">
 				</div>
 			</div>
 			<div class="clearfix">

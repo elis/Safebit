@@ -210,3 +210,4 @@ if (typeof SafebitUI == 'undefined') {
 } else {
 	SafebitUI.registerSection(sectionDashboard());
 }
+console.log('testing')
