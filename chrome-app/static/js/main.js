@@ -1,4 +1,4 @@
-/**
+/*
  * 
  * Main (section un-related) bindings
  * 

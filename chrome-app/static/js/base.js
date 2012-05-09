@@ -22,6 +22,7 @@ safebitBase = (function($) {
 	var defaultSettings = {
 		currency: false,
 		
+		devMode: false,
 		
 		// RPC
 		rpcuser: '',

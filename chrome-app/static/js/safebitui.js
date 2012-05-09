@@ -122,6 +122,7 @@ SafebitUI = (function($){
 	api.appSettings = {};
 	api.setAppSettings = function (settings) {
 		$.extend(self.appSettings, settings);
+		self.baseCall('setSettings', settings)
 	};
 
 	/**
@@ -133,6 +134,10 @@ SafebitUI = (function($){
 	 * @param params mixed Parameters to send with the request
 	 */
 	api.baseCall = function (action, callback, params) {
+		if (typeof callback != 'function') {
+			params = callback;
+			callback = function () {};
+		};
 		
 		
 		chrome.extension.sendRequest({'action': action, 'params': params}, function (result) {
@@ -160,10 +165,11 @@ SafebitUI = (function($){
 			throw new Exception ('Name must exist for a section');
 		}
 		
-		if (!self.sections.hasOwnProperty(s.name)) {
-			// Create the <section> tag
-			self.sections[s.name] = s;
-			
+		if (s.name in self.sections && self.sections[s.name]._loaded) return self.sections[s.name];
+		
+		self.sections[s.name] = s;
+		
+		s.load = function () {
 			s.template = Template(s.name);
 			s.el = section = $('<section/>')
 				.attr('id', s.name)
@@ -182,6 +188,54 @@ SafebitUI = (function($){
 			if (s.active) {
 				activateSection(s.name);
 			}
+			
+			s.load = function () {};
+			
+			s._loaded = true;
+		}
+		
+		return s;
+	};
+	
+	api.oldRegisterSection = function () {
+		var baseOptions = {
+			name: '',
+			section: '',
+			init: function (section) {},
+			destroy: function (section) {},
+			show: function (section) {},
+			beforeShow: function (section) {},
+			reload: function () {},
+			active: false
+		};
+		
+		var s = $.extend({}, baseOptions, typeof options == 'string' ? {name: options} : options); 
+		if (!s.name) {
+			throw new Exception ('Name must exist for a section');
+		}
+		
+		if (self.sections.hasOwnProperty(s.name)) return section;
+		
+		// Create the <section> tag
+		self.sections[s.name] = s;
+		
+		s.template = Template(s.name);
+		s.el = section = $('<section/>')
+			.attr('id', s.name)
+			.appendTo('#content')
+			.addClass(s.active ? 'active' : '')
+			.addClass(s.template.selfClass)
+			.append(s.template.el);
+		
+		
+		s.self = self;
+		s.el.data('section', s);
+		
+		// fire up the section.init function
+		s.init.call(self, section);
+		
+		if (s.active) {
+			activateSection(s.name);
 		}
 		
 		return section;
@@ -223,7 +277,7 @@ SafebitUI = (function($){
 				delete self.sections[sectionName];
 			}
 		}
-
+		
 		// Check if we have such a section already
 		if (self.sections.hasOwnProperty(sectionName)) {
 			// If section exists, just show it
@@ -231,25 +285,35 @@ SafebitUI = (function($){
 			section.beforeShow.call(self, section);
 			activateSection(sectionName);
 		} else {
-			// Request it from server
+			var bust = (true || self.devMode) ? "?_bust=" + Math.round(Math.random(100) *  10e+7) : "";
 			
-			var contentReady = function (data) {
-				$('#content').append(data);
+			// Request it from server				
+			$.when(
+				$.ajax({
+					url: '/view/partial/' + sectionName + '.html' + bust,
+					dataType: 'html'
+				}),
+				api.loadScript('/static/section/' + sectionName + '.js' + bust)
+			).then(function (templateAjax) {
+				$('#content').append(templateAjax[0]);
 				
-				if (!self.sections.hasOwnProperty(sectionName)) {
-					self.registerSection(sectionName);
-				}
+				self.sections[sectionName].load();
 				
 				activateSection(sectionName);
-			};
-			
-			$.ajax({
-				url: '/view/partial/' + sectionName + '.html',
-				dataType: 'html',
-				success: contentReady
 			});
 		}
 	};
+	
+	api.loadScript = function (scriptSrc, callback) {
+		var dfd = $.Deferred();
+		
+		head.js(scriptSrc, function () {
+			dfd.resolve();
+			if (typeof callback == 'function') callback.call(api);
+		});
+		
+		return dfd.promise();
+	}
 	
 	api._ = {
 		'day_full': ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
