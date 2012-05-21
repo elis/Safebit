@@ -5,5 +5,7 @@ head.js(
 		"/static/js/lib/jquery.jgrowl.js",
 		"/static/js/lib/jquery.ui.combobox.js",
 		"/static/js/lib/jquery.ui.smartselect.js",
+		"/static/js/lib/mustache.js",
+		"/static/js/templates.js",
 		"/static/js/safebitui.js",
 		"/static/js/main.js");
