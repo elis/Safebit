@@ -282,7 +282,6 @@ SafebitUI = (function($){
 		if (self.sections.hasOwnProperty(sectionName)) {
 			// If section exists, just show it
 			var section = self.sections[sectionName]; 
-			section.beforeShow.call(self, section);
 			activateSection(sectionName);
 		} else {
 			var bust = (true || self.devMode) ? "?_bust=" + Math.round(Math.random(100) *  10e+7) : "";

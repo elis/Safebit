@@ -17,9 +17,6 @@ var Templates = (function ($, Mustache) {
 	var Templates = function (templateName) {
 		var $tpl = $('script[data-template-name="' + templateName + '"]'),
 			tpl = $tpl.html();
-		
-		console.log(tpl);
-		
 		return new Template(tpl);
 	}
 	

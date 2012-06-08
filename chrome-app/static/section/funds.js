@@ -25,9 +25,74 @@ var sectionFunds = (function() {
 	var sectionInit = function ($el) {
 		safebitui = this;
 		$section = $el;
+		
+		initSubSections();
 
-		prepareSendForm();
+		// prepareSendForm();
 	};
+	
+	function initSubSections () {
+		
+		var received = Templates('receive').render(),
+			params = {
+				minconf: 1,
+				includeempty: false
+			};
+		
+		var formatSelection = function (item) {
+			return "<span class='name'>"+
+				item.account+
+				"</span><span class='amount'>"+
+				item.amount+"</span>";
+		};
+		var formatResult = function (item) {
+			return item.account + "("+item.amount+")";
+		};
+		
+		// Here needs to be a "waiting" message until data arrives from server
+		safebitui.baseCall('listreceivedbyaccount', function (data) {
+			console.log(data);
+			var items = [], id, item;
+			for (id in data) {
+				items.push({
+					text: "<span class='name'>"+
+						data[id].account+
+						"</span><span class='amount'>"+
+						data[id].amount+"</span>",
+					id: data[id].account
+				})
+			}
+			
+			var ain = $('.send-funds .account input', $section);
+			
+			window.ain = ain;
+			
+			ain.select2({
+				placeholder: "Select an account to use",
+				data: {
+					results: data,
+					text: function(item) { return item.text; }
+				},
+				formatResult: formatSelection,
+				formatSelection: formatResult,
+				
+				minimumInputLength: 0,
+				minimumResultsForSearch: 4,
+				allowClear: true,
+				multiple: true, // bad behaviour
+				id: function (item) {
+					return item.account;
+				},
+				
+				yes: false
+			});
+			
+			
+			
+			
+		}, params);
+		
+	}
 
 	function initAccountInputs () {
 		// Check if we have accounts ready
@@ -480,7 +545,10 @@ d888888P          888888ba             dP            oo dP
 		section: '',
 		init: sectionInit,
 		show: function () {},
-		beforeShow: function () {},
+		beforeShow: function (section) {
+			if (!window.counter) window.counter = 1;
+			console.log(++window.counter, section);
+		},
 		reload: function () {},
 		active: true,
 		timers: stat.timers

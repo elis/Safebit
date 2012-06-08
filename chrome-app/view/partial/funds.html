@@ -49,7 +49,7 @@
 						<label class="account">
 							<span>From: </span>
 							<!-- input type="text" name="account" placeholder="Select an Acocunt" /-->
-							<select name="account" data-list="accounts"></select>
+							<input type="text" name="account" data-list="accounts" />
 							<span class="details">
 								Select an existing account
 							</span>
@@ -124,76 +124,6 @@
 		
 		
 		<article class="receive-funds">
-			<div class="clearfix">
-				<div class="grid_5">
-					<h1>Receive Funds</h1>
-					<form>
-						<label class="account">
-							<span>Select Account: </span>
-							<input type="text" name="account" placeholder="Select an Acocunt" />
-							<span class="details">
-								Select an existing account
-							</span>
-						</label>
-						
-						<label class="target">
-							<span>Address:</span>
-							<input type="text" name="adddress" placeholder="Generated Address"/>
-						</label>
-					</form>
-				</div>
-				<div class="grid_1">
-					&nbsp;
-				</div>
-				<div class="grid_6 txdetails">
-					<a rel="balance" class="action"></a>
-					<h2>Transaction Details</h2>
-
-					<p class="info">
-						You are about to transfer <ins class="currency btc"><span class="amount">#,##0.00</span> &#0579;</ins>
-						from <ins class="from account">Account Name</ins> to <ins class="to btcaddress">tareget address</ins>.
-					</p>
-					
-					<table class="transaction details">
-						<tr class="tx_amount">
-							<th>Transaction amount:</th>
-							<td>&nbsp;</td>
-							<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
-						</tr>
-						<tr class="tx_fee">
-							<th>Transaction Fee:</th>
-							<td>&nbsp;</td>
-							<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
-						</tr>
-						<tr class="account_balance">
-							<th>Account balance:</th>
-							<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
-							<td class="currency btc after"><span class="amount">#,##0.00</span> &#0579;</td>
-						</tr>
-						<tr class="wallet_balance">
-							<th>Wallet balance:</th>
-							<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
-							<td class="currency btc after"><span class="amount">#,##0.00</span> &#0579;</td>
-						</tr>
-						<!-- Other currencies
-						<tr>
-							<td colspan="2">&nbsp;</td>
-						</tr>
-						<tr>
-							<td>Wallet balance:</td>
-							<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
-							<td class="currency btc after"><span class="amount">#,##0.00</span> &#0579;</td>
-						</tr>
-						-->
-					</table>
-				</div>
-			</div>
-			<div class="clearfix">
-				<div class="actions">
-					<a class="cancel button">Cancel</a>
-					<a class="confirm button yellow key">Confirm Transaction</a>
-				</div>
-			</div>
 		</article>
 	</div>
 </script>
@@ -220,4 +150,78 @@
 		<p>The transaction ID: <ins class="tx_id"></ins></p>
 		<p>Thank you for using Bitcoin!</p>
 	</article>
+</script>
+
+<script type="text/template" data-template-name="receive">
+<div class="clearfix">
+	<div class="grid_5">
+		<h1>{{dict.Receive_Funds}}</h1>
+		<form>
+			<label class="account">
+				<span>Select Account: </span>
+				<input type="text" name="account" placeholder="Select an Acocunt" />
+				<span class="details">
+					Select an existing account
+				</span>
+			</label>
+			
+			<label class="target">
+				<span>Address:</span>
+				<input type="text" name="adddress" placeholder="Generated Address"/>
+			</label>
+		</form>
+	</div>
+	<div class="grid_1">
+		&nbsp;
+	</div>
+	<div class="grid_6 txdetails">
+		<a rel="balance" class="action"></a>
+		<h2>Transaction Details</h2>
+
+		<p class="info">
+			You are about to transfer <ins class="currency btc"><span class="amount">#,##0.00</span> &#0579;</ins>
+			from <ins class="from account">Account Name</ins> to <ins class="to btcaddress">tareget address</ins>.
+		</p>
+		
+		<table class="transaction details">
+			<tr class="tx_amount">
+				<th>Transaction amount:</th>
+				<td>&nbsp;</td>
+				<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
+			</tr>
+			<tr class="tx_fee">
+				<th>Transaction Fee:</th>
+				<td>&nbsp;</td>
+				<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
+			</tr>
+			<tr class="account_balance">
+				<th>Account balance:</th>
+				<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
+				<td class="currency btc after"><span class="amount">#,##0.00</span> &#0579;</td>
+			</tr>
+			<tr class="wallet_balance">
+				<th>Wallet balance:</th>
+				<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
+				<td class="currency btc after"><span class="amount">#,##0.00</span> &#0579;</td>
+			</tr>
+			<!-- Other currencies
+			<tr>
+				<td colspan="2">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>Wallet balance:</td>
+				<td class="currency btc"><span class="amount">#,##0.00</span> &#0579;</td>
+				<td class="currency btc after"><span class="amount">#,##0.00</span> &#0579;</td>
+			</tr>
+			-->
+		</table>
+	</div>
+</div>
+<div class="clearfix">
+	<div class="actions">
+		<a class="cancel button">Cancel</a>
+		<a class="confirm button yellow key">Confirm Transaction</a>
+	</div>
+</div>
+
 </script>
