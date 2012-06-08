@@ -1,6 +1,6 @@
 	{
 		"name": "Safebit",
-		"version": "0.31",
+		"version": "0.35",
 		"background_page": "background.html",
 		"permissions": [
 			"tabs", "http://*/*", "https://*/*",
