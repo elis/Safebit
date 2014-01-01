@@ -2,7 +2,7 @@
                                                          
 
 
-Safebit is an ideal Bitcoin thin client user interface in beta that is built as a Chromium Application.
+Safebit is an ideal Bitcoin thin client user interface in beta that is built as a Chromium / Chrome application.
 If you wish to contribute to Safebit or start writing plugins, feel free to fork the repository 
 and submit pull requests.
 
