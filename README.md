@@ -1,5 +1,4 @@
 
-
     .d88888b           .8888b          dP          oo   dP   
     88.    "'          88   "          88               88   
     `Y88888b. .d8888b. 88aaa  .d8888b. 88d888b.    dP d8888P 
@@ -12,9 +11,7 @@
 This is the official public release of Safebit.
 
 Safebit is released under [Mozilla Public License 2.0](http://www.mozilla.org/MPL/2.0/)
-meaning code in the main repo is protected under copyleft, but you can use and add your own code under different licenses.
-The name "SafeBit" is explicitly reserved for use in regards and reference to this project and the code within; 
-this excludes all derivative works from this code base from using "SafeBit" as its own but includes the requirement to give attribution to the "SafeBit" project and reference the attached MPL 2.0 license.  
+meaning code in the main repo is protected under copyleft.  You can use and add your own code under different licenses with attribution to the SafeBit project and reference to the MPL 2.0 license.  The name "SafeBit" is explicitly reserved for use in regards and reference to this project and the code within;  this excludes all derivative works created from this code base from using "SafeBit" as its own name but includes the requirement to give attribution to the "SafeBit" project and reference the attached MPL 2.0 license.  
 
 
 If you wish to contribute to Safebit or start writing plugins, feel free to fork the repository 
